@@ -185,8 +185,7 @@ if __name__ == "__main__":
 
     # As an example, make the 6df figures and video
     make_figures("6df")
-    make_all_video("6df")
-
+    #make_all_video("6df")
 
     # Uncomment one of the below lines (and comment out the above two)
     # to make only the plot declared
