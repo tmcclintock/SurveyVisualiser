@@ -208,10 +208,10 @@ if __name__ == "__main__":
     # make_all_video()
 
     # As an example, make the 6df figures and video
-    #make_figures("6df")
+    make_figures("6df")
     noframes=360
     tlist=np.round(np.linspace(56500,    57500,  noframes, endpoint=False),0)
-    make_all_video("ozdes", low_quality=False, no_frames=noframes, plotsupernovae=True, blur=True, tlist=tlist, contrast=2, falsecolor='rgb', redshift=True)
+    #make_all_video("ozdes", low_quality=False, no_frames=noframes, plotsupernovae=True, blur=True, tlist=tlist, contrast=2, falsecolor='rgb', redshift=True)
 
     # Uncomment one of the below lines (and comment out the above two)
     # to make only the plot declared
