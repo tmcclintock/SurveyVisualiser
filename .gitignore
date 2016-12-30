@@ -1,1 +1,4 @@
+# Ignore compiled python code
+*.pyc
+
 .idea/
