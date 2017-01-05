@@ -1,5 +1,4 @@
 import numpy as np
-import sncosmo as snc
 from astropy.table import Table as table
 
 
@@ -43,7 +42,7 @@ class SupernovaSurvey(Survey):
     """
 
     def __init__(self):
-
+        import sncosmo as snc
         #Load the data from the file
         data = np.load("surveyvis/data/supernovae.npy")
         ra=data[:, 0] * np.pi / 180
@@ -244,7 +243,8 @@ class SDSS(Survey):
 class SixDegreefField(Survey):
     def __init__(self):
         data = np.load("surveyvis/data/6df.npy")
-        super().__init__(data[:, 0] * np.pi / 180, data[:, 1] * np.pi / 180, data[:, 2], zmax=0.15)
+        #super().__init__(data[:, 0] * np.pi / 180, data[:, 1] * np.pi / 180, data[:, 2], zmax=0.15) #Python 3 version
+        super(SixDegreefField,self).__init__(data[:, 0] * np.pi / 180, data[:, 1] * np.pi / 180, data[:, 2], zmax=0.15) #Python 2.7 version
         self.color = "#e2a329"
 
 
@@ -269,3 +269,26 @@ class Taipan(Survey):
         super().__init__(data[:, 0] * np.pi / 180, data[:, 1] * np.pi / 180, data[:, 2], zmax=0.2)
         self.size = 1.0
         self.alpha = 0.4
+
+class Rockstar(Survey):
+    def __init__(self):
+        """
+        An object for rockstar halo snaphosts.
+        Snapshots are unique in that all objects are at
+        the same redshift (i.e. there is no observer, unlike
+        a light-cone).
+
+        This is in development
+
+        Parameters
+        ----------
+        None
+        """
+        data = None
+        print "in the rockstar survey object"
+        #super().__init__(0,0,0, zmax = 1.0) #Python 3 version
+        super(Rockstar,self).__init__(0,0,0, zmax = 1.0) #Python 2.7 version
+        self.size = 1.0  #arbitraru
+        self.alpha = 0.4 #arbitrary
+        import sys
+        sys.exit() #For testing

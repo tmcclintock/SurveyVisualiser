@@ -1,4 +1,4 @@
-from surveyvis.surveys import TwoDegreeField, SixDegreefField, SDSS
+from surveyvis.surveys import TwoDegreeField, SixDegreefField, SDSS, Rockstar
 #WiggleZ, TwoDegreeField, Gama, SDSS, SixDegreefField, Dummy, Dummy2, OzDES, Tdflens, Taipan#, SupernovaSurvey
 from surveyvis.visualiser import Visualisation
 import numpy as np
@@ -195,6 +195,7 @@ def make_figures(name=None, blur=True):
         names = [name]
         groups[0].zmax=1.0
     elif name is "rockstar_snapshot":
+        print "Making rockstar snapshot"
         groups = [Rockstar()]
         names = [name]
 
@@ -227,7 +228,7 @@ if __name__ == "__main__":
     # make_all_video()
 
     # As an example, make the 6df figures and video
-    make_figures("6df")
+    make_figures("rockstar_snapshot")
     noframes=360
     tlist=np.round(np.linspace(56500,    57500,  noframes, endpoint=False),0)
     #make_all_video("ozdes", low_quality=False, no_frames=noframes, plotsupernovae=True, blur=True, tlist=tlist, contrast=2, falsecolor='rgb', redshift=True)
