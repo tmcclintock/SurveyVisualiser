@@ -1,5 +1,5 @@
 # TOM's TODO notes for his fork.
-- Convert the example rockstar snapshot data into npy form from .txt
+- figure out how to deal with the fact that the snapshot data is already x,y,z instead of spherical coordinates
 
 # Visualising Galaxy Surveys
 
