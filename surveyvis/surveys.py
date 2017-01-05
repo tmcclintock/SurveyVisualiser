@@ -284,10 +284,21 @@ class Rockstar(Survey):
         ----------
         None
         """
-        data = None
+        data = np.loadtxt("surveyvis/data/Rockstar_example_z3.txt")
+        """
+        NOTE: sadly rockstar formats are configurable, so the x,y,z
+        and mass columns could be anywhere. Here I have hard-coded them.
+
+        Also, these are already in x, y, z and don't have to be converted
+        from sky coordinates.
+        """
+        x_index = 8
+        y_index = 9
+        z_index = 10
+        print data.shape
         print "in the rockstar survey object"
         #super().__init__(0,0,0, zmax = 1.0) #Python 3 version
-        super(Rockstar,self).__init__(0,0,0, zmax = 1.0) #Python 2.7 version
+        super(Rockstar,self).__init__(0,0,0, zmax = 3.0) #Python 2.7 version
         self.size = 1.0  #arbitraru
         self.alpha = 0.4 #arbitrary
         import sys
