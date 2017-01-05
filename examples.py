@@ -1,4 +1,5 @@
-from surveyvis.surveys import WiggleZ, TwoDegreeField, Gama, SDSS, SixDegreefField, Dummy, Dummy2, OzDES, Tdflens, Taipan, SupernovaSurvey
+from surveyvis.surveys import TwoDegreeField, SixDegreefField, SDSS
+#WiggleZ, TwoDegreeField, Gama, SDSS, SixDegreefField, Dummy, Dummy2, OzDES, Tdflens, Taipan#, SupernovaSurvey
 from surveyvis.visualiser import Visualisation
 import numpy as np
 from joblib import Parallel, delayed
@@ -177,8 +178,26 @@ def make_figures(name=None, blur=True):
         If None, makes all permutations. If a string,
         will only make the permutation matching with the same name.
         See output of `get_permutations` for a list of names
+        Note: not all permutations have been implemented just yet.
     """
-    groups, names = get_permutations()
+
+    if name is None:
+        groups, names = get_permutations()
+    elif name is "6df":
+        groups = [SixDegreefField()]
+        names = [name]
+    elif name is "ozdes_deep":
+        groups = [OzDES()]
+        names = [name]
+        groups[0].zmax=4.0
+    elif name is "ozdes":
+        groups = [OzDES()]
+        names = [name]
+        groups[0].zmax=1.0
+    elif name is "rockstar_snapshot":
+        groups = [Rockstar()]
+        names = [name]
+
     # Using 4 cores, make all the images we want
     Parallel(n_jobs=1)(delayed(make)(n + ".png", g) for n, g in zip(names, groups) if name is None or name == n)
 
