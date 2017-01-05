@@ -1,5 +1,5 @@
 # TOM's TODO notes for his fork.
-- add in an example rockstar snapshot data file
+- Convert the example rockstar snapshot data into npy form from .txt
 
 # Visualising Galaxy Surveys
 
