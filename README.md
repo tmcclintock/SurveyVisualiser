@@ -1,3 +1,6 @@
+# TOM's TODO notes for his fork.
+- add in an example rockstar snapshot data file
+
 # Visualising Galaxy Surveys
 
 A small project I wrote to visualise various cosmological surveys.
